@@ -7,7 +7,8 @@
   },
   "devDependencies": {
     "@cap-js/sqlite": "^1",
-    "@cap-js/cds-types": "^0.7.0"
+    "@cap-js/cds-types": "^0.7.0",
+    "cds-plugin-ui5": "^0.9.3"
   },
   "cds": {
     "requires": {
@@ -18,6 +19,15 @@
     }
   },
   "scripts": {
-    "start": "cds-serve"
-  }
+    "start": "cds-serve",
+    "watch-project1": "cds watch --open project1/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-project2": "cds watch --open project2/webapp/index.html?sap-ui-xx-viewCache=false"
+  },
+  "workspaces": [
+    "app/*"
+  ],
+  "sapux": [
+    "app/project1",
+    "app/project2"
+  ]
 }
