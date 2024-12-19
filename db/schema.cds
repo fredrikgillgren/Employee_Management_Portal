@@ -16,17 +16,17 @@ entity Addresses {
     country : String;
 }
 
-entity Roles {
-    key ID : UUID;
-    roleName : String;
-    employee : Association to Employees;
-    project : Association to Projects;
-}
-
 entity Projects {
     key ID : UUID;
     name : String;
     startDate : Date;
     endDate : Date;
     roles : Composition of many Roles on roles.project = $self;
+}
+
+entity Roles {
+    key ID : UUID;
+    roleName : String;
+    employee : Association to Employees;
+    project : Association to Projects;
 }

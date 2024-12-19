@@ -1,8 +1,17 @@
-using EmployeeManagement as em from '../db/schema';
+using EmployeeManagement from '../db/schema';
 
 service EmployeeService {
-    entity Employees as projection on em.Employees;
-    entity Roles as projection on em.Roles;
-    entity Projects as projection on em.Projects;
-    entity Addresses as projection on em.Addresses;
+    entity EmployeeRoleProjects as select from EmployeeManagement.Roles {
+        key employee.ID as employeeID,
+        employee.name as employeeName,
+        employee.email as employeeEmail,
+        employee.address.street as employeeStreet,
+        employee.address.city as employeeCity,
+        employee.address.country as employeeCountry,
+        key roleName,
+        key project.ID as projectID,
+        project.name as projectName,
+        project.startDate as projectStartDate,
+        project.endDate as projectEndDate
+    };
 }
