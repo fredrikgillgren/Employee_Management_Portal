@@ -6,7 +6,6 @@ entity Employees {
     email : String;
     startDate : Date;
     address : Association to Addresses;
-    roles : Composition of many Roles on roles.employee = $self;
 }
 
 entity Addresses {

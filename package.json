@@ -23,7 +23,8 @@
     "start": "cds-serve",
     "watch-project1": "cds watch --open project1/index.html?sap-ui-xx-viewCache=false --livereload false",
     "watch-project2": "cds watch --open project2/webapp/index.html?sap-ui-xx-viewCache=false",
-    "watch-employeeroleprojects": "cds watch --open employeeroleprojects/webapp/index.html?sap-ui-xx-viewCache=false"
+    "watch-employeeroleprojects": "cds watch --open employeeroleprojects/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-test": "cds watch --open test/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "workspaces": [
     "app/*"
@@ -31,6 +32,7 @@
   "sapux": [
     "app/project1",
     "app/project2",
-    "app/employeeroleprojects"
+    "app/employeeroleprojects",
+    "app/test"
   ]
 }

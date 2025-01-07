@@ -1,4 +1,4 @@
-using EmployeeService as service from '../../srv/service';
+using { EmployeeService as service } from '../../srv/service';
 
 annotate service.EmployeeRoleProjects with @(
     UI.FieldGroup #EmployeeDetails : {
@@ -36,6 +36,7 @@ annotate service.EmployeeRoleProjects with @(
             }
         ]
     },
+
     UI.FieldGroup #ProjectDetails : {
         $Type : 'UI.FieldGroupType',
         Data : [
@@ -66,6 +67,7 @@ annotate service.EmployeeRoleProjects with @(
             }
         ]
     },
+
     UI.Facets : [
         {
             $Type: 'UI.ReferenceFacet',
@@ -78,6 +80,7 @@ annotate service.EmployeeRoleProjects with @(
             Target: '@UI.FieldGroup#ProjectDetails'
         }
     ],
+
     UI.LineItem : [
         {
             $Type : 'UI.DataField',
@@ -88,11 +91,6 @@ annotate service.EmployeeRoleProjects with @(
             $Type : 'UI.DataField',
             Label : 'Employee Name',
             Value : employeeName
-        },
-        {
-            $Type : 'UI.DataField',
-            Label : 'Project Name',
-            Value : projectName
         },
         {
             $Type : 'UI.DataField',
