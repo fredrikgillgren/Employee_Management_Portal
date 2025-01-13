@@ -7,8 +7,8 @@ entity Employees : managed {
   name   : String(111);
   startDate : Date;
   address : Association to Addresses;  // Linking to the address entity
-  roles  : Association to many Roles on roles.employee = $self;  // Employees can have multiple roles
-  projects : Association to many Projects on projects.employee = $self;  // Employees can be associated with multiple projects
+  roles  : Composition of many Roles on roles.employee = $self;  // Employees can have multiple roles
+  projects : Composition of many Projects on projects.employee = $self;  // Employees can be associated with multiple projects
 }
 
 entity Addresses : managed {
