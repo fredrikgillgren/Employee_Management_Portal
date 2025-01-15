@@ -1,2 +1,2 @@
 
-using from './emportal/annotations';
+using from './anotherone/annotations';

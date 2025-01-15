@@ -1,0 +1,198 @@
+{
+  "_version": "1.1.0",
+  "sap.app": {
+    "id": "anotherone",
+    "type": "application",
+    "title": "Manage Employees",
+    "description": "Sample Employee Management Application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "dataSources": {
+      "AdminService": {
+        "uri": "/odata/v4/admin/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "4.0"
+        }
+      }
+    },
+    "-sourceTemplate": {
+      "id": "ui5template.basicSAPUI5ApplicationProject",
+      "-id": "ui5template.smartTemplate",
+      "-version": "1.40.12"
+    }
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "demo"
+  },
+  "sap.ui5": {
+    "dependencies": {
+      "libs": {
+        "sap.fe.templates": {}
+      }
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      },
+      "": {
+        "dataSource": "AdminService",
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true,
+          "groupProperties": {
+            "default": {
+              "submit": "Auto"
+            }
+          }
+        }
+      }
+    },
+    "routing": {
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "EmployeesList",
+          "target": [
+            "EmployeesList"
+          ]
+        },
+        {
+          "pattern": "Employees({key}):?query:",
+          "name": "EmployeesObjectPage",
+          "target": [
+            "EmployeesObjectPage"
+          ]
+        },
+        {
+          "pattern": "Employees({key})/roles({key2}):?query:",
+          "name": "RoleObjectPage",
+          "target": [
+            "RoleObjectPage"
+          ]
+        },
+        {
+          "pattern": "Employees({key})/projects({key2}):?query:",
+          "name": "ProjectsObjectPage",
+          "target": [
+            "ProjectsObjectPage"
+          ]
+        },
+        {
+          "pattern": "Employees({key})/address({key2}):?query:",
+          "name": "AddressObjectPage",
+          "target": [
+            "AddressObjectPage"
+          ]
+        }
+      ],
+      "targets": {
+        "EmployeesList": {
+          "type": "Component",
+          "id": "EmployeesList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "entitySet": "Employees",
+              "variantManagement": "Page",
+              "navigation": {
+                "Employees": {
+                  "detail": {
+                    "route": "EmployeesObjectPage",
+                    "parameters": {
+                      "key": "{ID}"
+                    }
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "EmployeesObjectPage": {
+          "type": "Component",
+          "id": "EmployeesObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": true,
+              "entitySet": "Employees",
+              "navigation": {
+                "Roles": {
+                  "detail": {
+                    "route": "RoleObjectPage"
+                  }
+                },
+                "Projects": {
+                  "detail": {
+                    "route": "ProjectsObjectPage"
+                  }
+                },
+                "Address": {
+                  "detail": {
+                    "route": "AddressObjectPage"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "RoleObjectPage": {
+          "type": "Component",
+          "id": "RoleObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "entitySet": "Roles"
+            }
+          }
+        },
+        "ProjectsObjectPage": {
+          "type": "Component",
+          "id": "ProjectsObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "entitySet": "Projects"
+            }
+          }
+        },
+        "AddressObjectPage": {
+          "type": "Component",
+          "id": "AddressObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "entitySet": "Addresses"
+            }
+          }
+        }
+      },
+      "config": {}
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "fullWidth": false
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  }
+}

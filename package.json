@@ -1,13 +1,23 @@
 {
   "name": "Employee_Management_Portal",
   "version": "1.0.0",
+  "files": [
+    "db/",
+    "srv/",
+    "app/",
+    "index.cds",
+    "index.js"
+  ],
   "dependencies": {
     "@sap/cds": "^8.6.0",
     "@sap/cds-dk": "^8.6.1",
+    "@sap/cds/common": "^5.0.0",
+    "@sap/cds-fiori": "^5.0.0",
     "express": "^4"
   },
   "devDependencies": {
     "@cap-js/cds-types": "^0.7.0",
+    "@sap/cds-dk": "^5.0.0",
     "@cap-js/sqlite": "^1",
     "@sapui5/types": "^1.131.1",
     "@types/openui5": "^1.131.0",
@@ -29,7 +39,8 @@
     "watch-test": "cds watch --open test/webapp/index.html?sap-ui-xx-viewCache=false",
     "watch-emp": "cds watch --open emp/webapp/index.html?sap-ui-xx-viewCache=false",
     "watch-new": "cds watch --open new/webapp/index.html?sap-ui-xx-viewCache=false",
-    "watch-emportal": "cds watch --open emportal/webapp/index.html?sap-ui-xx-viewCache=false"
+    "watch-emportal": "cds watch --open emportal/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-anotherone": "cds watch --open anotherone/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "workspaces": [
     "app/*"
@@ -42,6 +53,7 @@
     "app/emp",
     "app/new",
     "app/emportal",
-    "app/emportal"
+    "app/emportal",
+    "app/anotherone"
   ]
 }
