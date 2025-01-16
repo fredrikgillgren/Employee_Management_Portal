@@ -3,13 +3,13 @@ using { managed, sap } from '@sap/cds/common';
 namespace sap.capire.emportal;
 
 entity Employees : managed {
-  key ID : Integer;  // Unique identifier for employees
+  key ID : Integer;
   name   : String(111);
   startDate : Date;
   email  : String(111);
-  address : Association to many Addresses on address.employee = $self;
-  roles  : Association to many Roles on roles.employee = $self;
-  projects : Association to many Projects on projects.employee = $self;
+  address : Composition of many Addresses on address.employee = $self;
+  roles  : Composition of many Roles on roles.employee = $self;
+  projects : Composition of many Projects on projects.employee = $self;
 }
 
 entity Addresses : managed {
@@ -17,7 +17,7 @@ entity Addresses : managed {
   street : String(255);
   city   : String(111);
   country : String(111);
-  employee : Association to Employees;  // Backlink to the associated employee
+  employee : Association to Employees;
 }
 
 entity Projects : managed {

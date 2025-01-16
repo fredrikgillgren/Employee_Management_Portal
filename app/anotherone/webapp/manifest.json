@@ -59,8 +59,7 @@
         {
           "pattern": ":?query:",
           "name": "EmployeesList",
-          "target":"EmployeesList"
-          
+          "target": "EmployeesList"
         },
         {
           "pattern": "Employees({key}):?query:",
@@ -71,19 +70,16 @@
           "pattern": "Employees({key})/Roles({key2}):?query:",
           "name": "RolesDetails",
           "target": "RolesDetails"
-          
         },
         {
           "pattern": "Employees({key})/Projects({key2}):?query:",
           "name": "ProjectsDetails",
           "target": "ProjectsDetails"
-
         },
         {
           "pattern": "Employees({key})/Addresses({key2}):?query:",
           "name": "AddressDetails",
           "target": "AddressDetails"
-
         }
       ],
       "targets": {
@@ -162,7 +158,8 @@
             }
           }
         }
-      }
+      },
+      "config": {}
     },
     "contentDensities": {
       "compact": true,
@@ -178,3 +175,5 @@
     "archeType": "transactional"
   }
 }
+
+
