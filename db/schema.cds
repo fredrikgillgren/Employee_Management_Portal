@@ -6,13 +6,14 @@ entity Employees : managed {
   key ID : Integer;  // Unique identifier for employees
   name   : String(111);
   startDate : Date;
-  address : Association to many Addresses on address.employee = $self;  // Linking to the address entity
-  roles  : Association to many Roles on roles.employee = $self;  // Employees can have multiple roles
-  projects : Association to many Projects on projects.employee = $self;  // Employees can be associated with multiple projects
+  email  : String(111);
+  address : Association to many Addresses on address.employee = $self;
+  roles  : Association to many Roles on roles.employee = $self;
+  projects : Association to many Projects on projects.employee = $self;
 }
 
 entity Addresses : managed {
-  key ID : Integer;  // Unique identifier for addresses
+  key ID : Integer;
   street : String(255);
   city   : String(111);
   country : String(111);
@@ -20,16 +21,16 @@ entity Addresses : managed {
 }
 
 entity Projects : managed {
-  key ID : Integer;  // Unique identifier for projects
+  key ID : Integer;
   name   : String(111);
   descr  : String(1111);
   startDate : Date;
   endDate   : Date;
-  employee : Association to Employees;  // Linking each project to an employee
+  employee : Association to Employees;
 }
 
 entity Roles : managed {
-  key ID : Integer;  // Unique identifier for roles
+  key ID : Integer;
   roleName : String(111);
-  employee : Association to Employees;  // Linking each role to an employee
+  employee : Association to Employees;
 }

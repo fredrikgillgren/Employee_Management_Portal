@@ -59,37 +59,31 @@
         {
           "pattern": ":?query:",
           "name": "EmployeesList",
-          "target": [
-            "EmployeesList"
-          ]
+          "target":"EmployeesList"
+          
         },
         {
           "pattern": "Employees({key}):?query:",
-          "name": "EmployeesObjectPage",
-          "target": [
-            "EmployeesObjectPage"
-          ]
+          "name": "EmployeesDetails",
+          "target": "EmployeesDetails"
         },
         {
-          "pattern": "Employees({key})/roles({key2}):?query:",
-          "name": "RoleObjectPage",
-          "target": [
-            "RoleObjectPage"
-          ]
+          "pattern": "Employees({key})/Roles({key2}):?query:",
+          "name": "RolesDetails",
+          "target": "RolesDetails"
+          
         },
         {
-          "pattern": "Employees({key})/projects({key2}):?query:",
-          "name": "ProjectsObjectPage",
-          "target": [
-            "ProjectsObjectPage"
-          ]
+          "pattern": "Employees({key})/Projects({key2}):?query:",
+          "name": "ProjectsDetails",
+          "target": "ProjectsDetails"
+
         },
         {
-          "pattern": "Employees({key})/address({key2}):?query:",
-          "name": "AddressObjectPage",
-          "target": [
-            "AddressObjectPage"
-          ]
+          "pattern": "Employees({key})/Addresses({key2}):?query:",
+          "name": "AddressDetails",
+          "target": "AddressDetails"
+
         }
       ],
       "targets": {
@@ -100,58 +94,47 @@
           "options": {
             "settings": {
               "entitySet": "Employees",
-              "variantManagement": "Page",
+              "initalLoad": true,
               "navigation": {
                 "Employees": {
                   "detail": {
-                    "route": "EmployeesObjectPage",
-                    "parameters": {
-                      "key": "{ID}"
-                    }
-                  }
-                }
-              },
-              "controlConfiguration": {
-                "@com.sap.vocabularies.UI.v1.LineItem": {
-                  "tableSettings": {
-                    "type": "ResponsiveTable"
+                    "route": "EmployeesDetails"
                   }
                 }
               }
             }
           }
         },
-        "EmployeesObjectPage": {
+        "EmployeesDetails": {
           "type": "Component",
-          "id": "EmployeesObjectPage",
+          "id": "EmployeesDetails",
           "name": "sap.fe.templates.ObjectPage",
           "options": {
             "settings": {
-              "editableHeaderContent": true,
               "entitySet": "Employees",
               "navigation": {
                 "Roles": {
                   "detail": {
-                    "route": "RoleObjectPage"
+                    "route": "RolesDetails"
                   }
                 },
                 "Projects": {
                   "detail": {
-                    "route": "ProjectsObjectPage"
+                    "route": "ProjectsDetails"
                   }
                 },
-                "Address": {
+                "Addresses": {
                   "detail": {
-                    "route": "AddressObjectPage"
+                    "route": "AddressDetails"
                   }
                 }
               }
             }
           }
         },
-        "RoleObjectPage": {
+        "RolesDetails": {
           "type": "Component",
-          "id": "RoleObjectPage",
+          "id": "RolesDetails",
           "name": "sap.fe.templates.ObjectPage",
           "options": {
             "settings": {
@@ -159,9 +142,9 @@
             }
           }
         },
-        "ProjectsObjectPage": {
+        "ProjectsDetails": {
           "type": "Component",
-          "id": "ProjectsObjectPage",
+          "id": "ProjectsDetails",
           "name": "sap.fe.templates.ObjectPage",
           "options": {
             "settings": {
@@ -169,9 +152,9 @@
             }
           }
         },
-        "AddressObjectPage": {
+        "AddressDetails": {
           "type": "Component",
-          "id": "AddressObjectPage",
+          "id": "AddressDetails",
           "name": "sap.fe.templates.ObjectPage",
           "options": {
             "settings": {
@@ -179,8 +162,7 @@
             }
           }
         }
-      },
-      "config": {}
+      }
     },
     "contentDensities": {
       "compact": true,

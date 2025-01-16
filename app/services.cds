@@ -1,2 +1,1 @@
-
-using from './anotherone/annotations';
+using from './anotherone/commonAnnotations';
